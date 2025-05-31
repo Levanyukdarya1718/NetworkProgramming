@@ -141,10 +141,10 @@ VOID PrintInfo(HWND hwnd)
 
 	sprintf(sz_NetworkIP_buffer, "Адрес сети: \t\t\t%s", IPaddressToString(dwIPaddress&dwIPmask, sz_buffer));
 	sprintf(sz_BroadcastIP_buffer, "Широковещательный адрес:\t%s", IPaddressToString(dwIPaddress|~dwIPmask, sz_buffer));
-	sprintf(sz_NumerOfIPs, "Количество IP адресов:\t%s", 1 << (32 - dwIPprefix));
-	sprintf(sz_NumerOfHost, "Количество IP узлов:\t%s",( 1 << (32 - dwIPprefix))-2);
+	sprintf(sz_NumerOfIPs, "Количество IP адресов:\t%u", 1 << (32 - dwIPprefix));
+	sprintf(sz_NumerOfHost, "Количество IP узлов:\t\t%u",( 1 << (32 - dwIPprefix))-2);
 
-	sprintf(sz_info, "%s\n%s\n$\n$", sz_NetworkIP_buffer, sz_BroadcastIP_buffer, sz_NumerOfIPs, sz_NumerOfHost);
+	sprintf(sz_info, "%s\n%s\n%s\n%s", sz_NetworkIP_buffer, sz_BroadcastIP_buffer, sz_NumerOfIPs, sz_NumerOfHost);
 	SendMessage(hStaticInfo, WM_SETTEXT, 0, (LPARAM)sz_info);
 
 }
